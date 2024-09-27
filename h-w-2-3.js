@@ -1,22 +1,38 @@
-const players = [
-    { name: "Player1_1", scorePoints: 0 },
-    { name: "Player2_1", scorePoints: 0 },
-    { name: "Player1_2", scorePoints: 50 },
-    { name: "Player2_2", scorePoints: 75 },
-    { name: "Player3_1", scorePoints: 60 },
-    { name: "Player1_3", scorePoints: -50 },
-    { name: "Player2_3", scorePoints: -30 },
-    { name: "Player3_2", scorePoints: -10 },
-    { name: "Player1_4", scorePoints: 50.5 },
-    { name: "Player2_4", scorePoints: 75.25 },
-    { name: "Player3_3", scorePoints: 60.75 },
-];
-  
-    let arrScores = [];
 
-for(index in players) {
-    arrScores.push((players[index].scorePoints))
+
+
+
+
+
+
+
+class Button {
+    constructor(width, height, type = "button", color = "green") {
+        this.button_width = width+6;
+        this.height = height;
+        this.type = type;
+        this.color = color;
+        this.props = {propsWidth: this.button_width, propsHeight: this.height, type: this.type, propsColor: this.color} 
+    }
+    onClick() {
+        console.log(this.props)
+    }
 }
-let maxIndex = arrScores.indexOf(Math.max(...arrScores))
 
-console.log(`${players[maxIndex].name} has max score`)
+let OurButton = new Button(30, 2)
+OurButton.onClick();
+
+testButton(OurButton, 36, 2, "button", "green")
+
+function testButton(button, expectedWidth, expectedHeight, expectedType, expectedColor) {
+    if (
+        button.button_width ===expectedWidth && 
+        button.height === expectedHeight && 
+        button.type === expectedType && 
+        button.color === expectedColor 
+    ) {
+        console.log("Button has been created correctly")
+    } else {
+        console.log("Button has been created incorrectly")    
+    }
+}
